@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Course</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            transition: background-color 0.3s ease;
+        }
+
+        .course-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+            transition: color 0.3s ease;
+        }
+
+        .class-list {
+            list-style-type: none;
+        }
+
+        .class-item {
+            background-color: #007bff;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 8px;
+            color: white;
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s ease;
+            transform: translateX(0);
+        }
+
+        .class-item:hover {
+            background-color: #0056b3;
+            transform: translateX(10px);
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #17a2b8;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background-color: #138496;
+            transform: rotate(180deg);
+        }
+
+        .dark-theme {
+            background-color: #333;
+            color: #f4f4f4;
+        }
+
+        .dark-theme .course-title {
+            color: #f4f4f4;
+        }
+
+        .dark-theme .class-item {
+            background-color: #0056b3;
+        }
+
+        .dark-theme .class-item:hover {
+            background-color: #003d80;
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+    <h1 class="course-title">Вводный курс: Python</h1>
+    <ul class="class-list">
+        <li><a href="class1.html" class="class-item">1 урок: Привет, Python!</a></li>
+        <li><a href="class2.html" class="class-item">2 урок: Типы данных в Python</a></li>
+        <li><a href="class3.html" class="class-item">3 урок: Структуры данных в Python</a></li>
+        <li><a href="class4.html" class="class-item">Class 4: Функции в python</a></li>
+        <li><a href="class5.html" class="class-item">Class 5: ООП в Python</a></li>
+    </ul>
+    <a href="index.html" class="back-button">Вернуться обратно</a>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+        }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const classItems = document.querySelectorAll('.class-item');
+            classItems.forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.1}s`;
+                item.classList.add('animate-in');
+            });
+        });
+    </script>
+</body>
+</html>
